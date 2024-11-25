@@ -1,5 +1,6 @@
 // src/ThemeContext.js
-import React, { createContext, useState, useContext, useEffect } from 'react';
+import React, { createContext, useState, useContext, useEffect, useCallback } from 'react';
+import { debounce } from "lodash";
 
 const ThemeContext = createContext();
 
@@ -18,9 +19,12 @@ export const ThemeProvider = ({ children }) => {
     localStorage.setItem('theme', theme);
   }, [theme]);
 
-  const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
-  };
+  const toggleTheme = useCallback(
+    debounce(() => {
+      setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+    }, 300),
+    []
+  );
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>

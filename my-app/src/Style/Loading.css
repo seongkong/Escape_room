@@ -1,0 +1,44 @@
+/* 로딩 화면 컨테이너 */
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* 부모 요소의 100% 크기 */
+  width: 100%;  /* 너비 설정 추가 */
+  background-color: #d50000; /* 빨간 배경 */
+  overflow: hidden;
+  position: absolute; /* 위치 고정 */
+  top: 0;
+  left: 0;
+}
+
+
+/* 텍스트 스타일 */
+.loading-box {
+  text-align: center;
+  position: relative;
+  animation: zoomInOut 3s infinite; /* 줌 애니메이션 */
+}
+
+.loading-text {
+  font-size: 5rem;
+  color: #000;
+  font-weight: bold;
+  position: relative;
+}
+
+.sub-text {
+  font-size: 1.5rem;
+  color: white;
+  margin-top: 10px;
+}
+
+/* 애니메이션 */
+@keyframes zoomInOut {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
