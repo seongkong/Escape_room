@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { useTheme, ThemeProvider } from './ThemeContext';
+import './index.css';
 
-function App() {
+const App = () => {
+  const { theme, toggleTheme } = useTheme();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>React 다크모드 예제</h1>
+      <p>현재 테마: {theme}</p>
+      <button onClick={toggleTheme}>
+        {theme === 'light' ? '다크모드로 전환' : '라이트모드로 전환'}
+      </button>
     </div>
   );
-}
+};
 
-export default App;
+const Root = () => (
+  <ThemeProvider>
+    <App />
+  </ThemeProvider>
+);
+
+export default Root;
