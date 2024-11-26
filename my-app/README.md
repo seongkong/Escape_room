@@ -1,70 +1,53 @@
-# Getting Started with Create React App
+# Escape_room
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+---
 
-## Available Scripts
+## **파일 구조**
 
-In the project directory, you can run:
+### `src/ThemeContext.js`
+- 다크모드 및 라이트모드 상태를 관리하는 컨텍스트를 정의합니다.
+- 테마 상태를 로컬 스토리지에 저장하고, HTML의 `data-theme` 속성에 반영합니다.
+- `toggleTheme` 메서드를 통해 테마를 전환할 수 있습니다.
 
-### `npm start`
+### `src/Router.js`
+- React Router를 활용하여 라우팅을 관리합니다.
+- `/` 경로에서는 로딩 페이지(`Loading.js`)를, `/main` 경로에서는 메인 페이지(`MainPage.js`)를 렌더링합니다.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### `src/App.js`
+- `ThemeProvider`와 `Router`를 통합하여 앱의 루트 컴포넌트를 구성합니다.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### `src/pages/Loading.js`
+- 로딩 화면을 담당하는 컴포넌트입니다.
+- 3초 후 메인 페이지로 자동 이동합니다.
+- 빨간 배경과 확대 축소 애니메이션 효과를 포함한 로딩 메시지를 보여줍니다.
 
-### `npm test`
+### `src/pages/MainPage.js`
+- 메인 페이지를 담당하는 컴포넌트입니다.
+- 현재 테마를 보여주고, 버튼 클릭으로 테마를 전환할 수 있습니다.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## **스타일 파일**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### `src/Style/Loading.css`
+- 로딩 화면의 스타일을 정의합니다.
+- 화면 중앙에 텍스트를 배치하고, 배경색과 애니메이션 효과를 설정합니다.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### `src/index.css`
+- 글로벌 스타일을 정의합니다.
+- 기본 폰트, 반응형 스타일, 다크모드/라이트모드 색상 변수를 포함합니다.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### `src/styles.css`
+- 프로젝트에서 활용 가능한 다양한 색상 변수를 정의합니다.
+- 현재는 사용되지 않지만, 향후 프로젝트 확장을 위해 준비된 색상 팔레트를 포함합니다.
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## **기타 파일**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### `public/index.html`
+- React 애플리케이션이 렌더링되는 기본 HTML 파일입니다.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### `src/index.js`
+- React 애플리케이션의 진입점 파일입니다.
+- `App` 컴포넌트를 DOM에 렌더링합니다.
